@@ -30,6 +30,16 @@ const addCorsHeaders = (response: Response): Response => {
   return newResponse;
 };
 
+const isHtmlNavigation = (request: Request): boolean => {
+  // Browser navigations usually have this header
+  const mode = request.headers.get("Sec-Fetch-Mode");
+  if (mode === "navigate") return true;
+
+  // Fallback: Accept header prefers HTML
+  const accept = request.headers.get("Accept") || "";
+  return accept.includes("text/html");
+};
+
 // Wrap OAuth Provider to restrict CORS headers on public metadata endpoints
 // OAuth Provider v0.0.12 adds overly permissive CORS (allows all methods/headers).
 // We override with secure headers for .well-known endpoints and add CORS to robots.txt/llms.txt.
@@ -91,6 +101,20 @@ const wrappedOAuthProvider = {
     // Add CORS headers to public metadata endpoints
     if (isPublicMetadataEndpoint(url.pathname)) {
       return addCorsHeaders(response);
+    }
+
+    // SPA navigation fallback
+    if (
+      response.status === 404 &&
+      request.method === "GET" &&
+      isHtmlNavigation(request) &&
+      !url.pathname.startsWith("/mcp") &&
+      !url.pathname.startsWith("/oauth")
+    ) {
+      // Let the ASSETS binding handle it; with
+      // not_found_handling: "single-page-application"
+      // this will serve index.html for unknown paths like /docs
+      return env.ASSETS.fetch(request);
     }
 
     return response;

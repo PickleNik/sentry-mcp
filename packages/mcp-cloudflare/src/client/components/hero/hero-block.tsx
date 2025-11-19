@@ -1,9 +1,15 @@
+import { useEffect, useState } from "react";
 import TerminalAnimation from "../animation/TerminalAnimation";
 import { Button } from "../ui/button";
 import CodeSnippet from "../ui/code-snippet";
 
 export default function HeroBlock() {
-  const endpoint = new URL("/mcp", window.location.href).href;
+  const [endpoint, setEndpoint] = useState<string | null>(null);
+
+  useEffect(() => {
+    const url = new URL("/mcp", window.location.href).href;
+    setEndpoint(url);
+  }, []);
 
   return (
     <div className="flex-1 flex flex-col container mx-auto min-h-[min(80rem,calc(100svh-69px))]">

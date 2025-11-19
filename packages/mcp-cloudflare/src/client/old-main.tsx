@@ -5,7 +5,10 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./app";
 import { AuthProvider } from "./contexts/auth-context";
+// TODO: move sentry setup to root.tsx
 import * as Sentry from "@sentry/react";
+import { BrowserRouter } from "react-router";
+// import { RootProvider } from "fumadocs-ui/provider/base";
 
 const container = document.getElementById("root");
 
@@ -22,8 +25,12 @@ const root = createRoot(container!, {
 
 root.render(
   <StrictMode>
-    <AuthProvider>
-      <App />
-    </AuthProvider>
+    {/* <RootProvider> */}
+    <BrowserRouter>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </BrowserRouter>
+    {/* </RootProvider> */}
   </StrictMode>,
 );

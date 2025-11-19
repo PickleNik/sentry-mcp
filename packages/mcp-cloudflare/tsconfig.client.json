@@ -1,15 +1,14 @@
 {
   "extends": "@sentry/mcp-server-tsconfig/tsconfig.vite.json",
   "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.client.tsbuildinfo",
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "fumadocs-mdx:collections/*": [".source/*"],
+      "@/*": ["./src/*"]
     },
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": ".",
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.client.tsbuildinfo"
   },
   "include": ["src/client"]
 }

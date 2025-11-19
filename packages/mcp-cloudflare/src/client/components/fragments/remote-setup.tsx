@@ -3,17 +3,24 @@ import { Prose } from "../ui/prose";
 import { NPM_REMOTE_NAME } from "@/constants";
 import { Button } from "../ui/button";
 import InstallTabs, { Tab } from "./install-tabs";
+import { useEffect, useState } from "react";
 
 const mcpServerName = import.meta.env.DEV ? "sentry-dev" : "sentry";
 
 export default function RemoteSetup() {
-  const endpoint = new URL("/mcp", window.location.href).href;
+  const [endpoint, setEndpoint] = useState<string | null>(null);
+
+  useEffect(() => {
+    const url = new URL("/mcp", window.location.href).href;
+    setEndpoint(url);
+  }, []);
+
   return (
     <>
       <Prose className="mb-6">
         <p>Connect directly using the base endpoint:</p>
         <div className="bg-background-3 p-1 mb-6">
-          <CodeSnippet noMargin snippet={endpoint} />
+          <CodeSnippet noMargin snippet={endpoint ?? ""} />
         </div>
         <p>
           <strong>Path Constraints:</strong> Restrict the session to a specific
@@ -47,7 +54,12 @@ export default function RemoteSetup() {
 }
 
 export function RemoteSetupTabs() {
-  const endpoint = new URL("/mcp", window.location.href).href;
+  const [endpoint, setEndpoint] = useState<string | null>(null);
+
+  useEffect(() => {
+    const url = new URL("/mcp", window.location.href).href;
+    setEndpoint(url);
+  }, []);
 
   const mcpRemoteSnippet = `npx ${NPM_REMOTE_NAME}@latest ${endpoint}`;
   // the shared configuration for all clients

@@ -6,6 +6,7 @@ import "./index.css";
 import App from "./app";
 import { AuthProvider } from "./contexts/auth-context";
 import * as Sentry from "@sentry/react";
+import { BrowserRouter } from "react-router";
 
 const container = document.getElementById("root");
 
@@ -22,8 +23,10 @@ const root = createRoot(container!, {
 
 root.render(
   <StrictMode>
-    <AuthProvider>
-      <App />
-    </AuthProvider>
+    <BrowserRouter>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </BrowserRouter>
   </StrictMode>,
 );

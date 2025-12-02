@@ -1,3 +1,5 @@
+"use client";
+
 import CodeSnippet from "../ui/code-snippet";
 import { Prose } from "../ui/prose";
 import { NPM_REMOTE_NAME } from "@/constants";
@@ -5,10 +7,13 @@ import { Button } from "../ui/button";
 import InstallTabs, { Tab } from "./install-tabs";
 import { getCursorDeepLink } from "@/client/utils";
 
-const mcpServerName = import.meta.env.DEV ? "sentry-dev" : "sentry";
+const mcpServerName = import.meta?.env?.DEV ? "sentry-dev" : "sentry";
 
 export default function RemoteSetup() {
-  const endpoint = new URL("/mcp", window.location.href).href;
+  const endpoint =
+    typeof window !== "undefined"
+      ? new URL("/mcp", window.location.href).href
+      : "/mcp";
   return (
     <>
       <Prose className="mb-6">
@@ -52,7 +57,10 @@ export default function RemoteSetup() {
 }
 
 export function RemoteSetupTabs() {
-  const endpoint = new URL("/mcp", window.location.href).href;
+  const endpoint =
+    typeof window !== "undefined"
+      ? new URL("/mcp", window.location.href).href
+      : "/mcp";
 
   const mcpRemoteSnippet = `npx ${NPM_REMOTE_NAME}@latest ${endpoint}`;
   // the shared configuration for all clients

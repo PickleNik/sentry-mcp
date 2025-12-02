@@ -4,9 +4,7 @@
   "private": true,
   "type": "module",
   "license": "FSL-1.1-ALv2",
-  "files": [
-    "./dist/*"
-  ],
+  "files": ["./dist/*"],
   "exports": {
     ".": {
       "types": "./dist/index.ts",
@@ -66,6 +64,7 @@
     "react-markdown": "catalog:",
     "react-scroll-to-bottom": "^4.2.0",
     "remark-gfm": "catalog:",
+    "streamdown": "^1.6.9",
     "tailwind-merge": "catalog:",
     "tw-animate-css": "catalog:",
     "workers-mcp": "catalog:",

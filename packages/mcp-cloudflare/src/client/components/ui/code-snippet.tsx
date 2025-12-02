@@ -1,3 +1,4 @@
+"use client";
 import { Copy, Check } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { Button } from "./button";

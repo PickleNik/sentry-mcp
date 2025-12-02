@@ -33,7 +33,7 @@ export default function CodeSnippet({
         clearTimeout(timeoutRef.current);
       }
 
-      timeoutRef.current = setTimeout(() => {
+      timeoutRef.current = window.setTimeout(() => {
         setCopied(false);
         timeoutRef.current = null;
       }, 2000);

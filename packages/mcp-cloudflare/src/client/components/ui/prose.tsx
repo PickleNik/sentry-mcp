@@ -4,7 +4,10 @@ export function Prose({
   children,
   className,
   ...props
-}: { children: React.ReactNode } & React.HTMLAttributes<HTMLDivElement>) {
+}: {
+  children: React.ReactNode;
+  className?: string | undefined;
+} & React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       className={cn(

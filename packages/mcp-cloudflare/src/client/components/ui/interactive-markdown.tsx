@@ -1,8 +1,7 @@
 /**
  * Markdown component that makes slash commands clickable
  */
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import { Streamdown } from "streamdown";
 import { cn } from "@/client/lib/utils";
 import { Markdown } from "./markdown";
 
@@ -22,7 +21,7 @@ export function InteractiveMarkdown({
   // If this content has slash commands and we have a handler, create custom renderer
   if (hasSlashCommands && onSlashCommand) {
     return (
-      <ReactMarkdown
+      <Streamdown
         className={cn(
           "prose prose-invert prose-slate max-w-none",
           "prose-p:my-2 prose-p:leading-relaxed",
@@ -42,9 +41,8 @@ export function InteractiveMarkdown({
           "prose-th:border-slate-700 prose-td:border-slate-700",
           className,
         )}
-        remarkPlugins={[remarkGfm]}
-        disallowedElements={["script", "style", "iframe", "object", "embed"]}
-        unwrapDisallowed={true}
+        // disallowedElements={["script", "style", "iframe", "object", "embed"]}
+        // unwrapDisallowed={true}
         components={{
           // Custom renderer for code that might contain slash commands
           code: ({ children, ref, ...props }) => {
@@ -57,7 +55,7 @@ export function InteractiveMarkdown({
                   onClick={() => onSlashCommand(command)}
                   className="inline-flex items-center gap-1 px-1 py-0.5 text-xs bg-blue-900/50 border border-blue-700/50 rounded text-blue-300 hover:bg-blue-800/50 hover:border-blue-600/50 transition-colors font-mono cursor-pointer"
                   type="button"
-                  {...props}
+                  {...(props as any)}
                 >
                   {text}
                 </button>
@@ -65,7 +63,7 @@ export function InteractiveMarkdown({
             }
             // Regular code rendering
             return (
-              <code ref={ref as any} {...props}>
+              <code ref={ref as any} {...(props as any)}>
                 {children}
               </code>
             );
@@ -73,7 +71,7 @@ export function InteractiveMarkdown({
         }}
       >
         {children}
-      </ReactMarkdown>
+      </Streamdown>
     );
   }
 

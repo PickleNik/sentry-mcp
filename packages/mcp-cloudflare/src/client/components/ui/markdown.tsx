@@ -1,5 +1,4 @@
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import { Streamdown } from "streamdown";
 import { cn } from "@/client/lib/utils";
 
 interface MarkdownProps {
@@ -9,7 +8,7 @@ interface MarkdownProps {
 
 export function Markdown({ children, className }: MarkdownProps) {
   return (
-    <ReactMarkdown
+    <Streamdown
       className={cn(
         "prose prose-invert prose-slate max-w-none",
         "prose-p:my-2 prose-p:leading-relaxed",
@@ -29,11 +28,10 @@ export function Markdown({ children, className }: MarkdownProps) {
         "prose-th:border-slate-700 prose-td:border-slate-700",
         className,
       )}
-      remarkPlugins={[remarkGfm]}
-      disallowedElements={["script", "style", "iframe", "object", "embed"]}
-      unwrapDisallowed={true}
+      // disallowedElements={["script", "style", "iframe", "object", "embed"]}
+      // unwrapDisallowed={true}
     >
       {children}
-    </ReactMarkdown>
+    </Streamdown>
   );
 }

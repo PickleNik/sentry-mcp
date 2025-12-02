@@ -41,6 +41,7 @@ export function InteractiveMarkdown({
           "prose-th:border-slate-700 prose-td:border-slate-700",
           className,
         )}
+        // TODO: uncomment upon streamdown update
         // disallowedElements={["script", "style", "iframe", "object", "embed"]}
         // unwrapDisallowed={true}
         components={{

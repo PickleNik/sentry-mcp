@@ -1,6 +1,7 @@
 import { RootProvider } from "fumadocs-ui/provider/next";
 import "./global.css";
 import { Inter } from "next/font/google";
+import SearchDialog from "./components/search";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,6 +15,9 @@ export default function Layout({ children }: LayoutProps<"/">) {
           theme={{
             enabled: true,
             defaultTheme: "dark",
+          }}
+          search={{
+            SearchDialog,
           }}
         >
           {children}

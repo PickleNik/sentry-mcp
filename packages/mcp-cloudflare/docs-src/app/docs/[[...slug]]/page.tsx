@@ -9,7 +9,8 @@ import { notFound } from "next/navigation";
 import { getMDXComponents } from "@/../docs-src/mdx-components";
 import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
-import { RemoteSetupTabs } from "../../../../src/client/components/fragments/remote-setup";
+// import { RemoteSetupTabs } from "../../../../src/client/components/fragments/remote-setup";
+import { RemoteSetupTabs } from "../../components/remote-setup";
 
 export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
   const params = await props.params;

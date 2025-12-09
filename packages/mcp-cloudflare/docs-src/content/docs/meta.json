@@ -1,8 +1,9 @@
 {
   "pages": [
-    "...",
     "---Getting Started---",
-    "[Sentry](https://sentry.io)",
+    "...",
+    "[Discord](https://discord.com/invite/sentry)",
+    "[Github](https://github.com/getsentry/sentry-mcp)",
     "[Sentry Docs](https://sentry.io/docs)"
   ]
 }

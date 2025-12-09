@@ -16,7 +16,7 @@ export function Heading({
       {...props}
     >
       <div className="flex flex-row gap-2">{children}</div>
-      <div className="h-[2px] mt-1 bg-violet-300 w-full" />
+      <div className="h-0.5 mt-1 bg-violet-300 w-full" />
     </Tag>
   );
 }

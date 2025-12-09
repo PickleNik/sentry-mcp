@@ -57,7 +57,7 @@ export function InteractiveMarkdown({
                   onClick={() => onSlashCommand(command)}
                   className="inline-flex items-center gap-1 px-1 py-0.5 text-xs bg-blue-900/50 border border-blue-700/50 rounded text-blue-300 hover:bg-blue-800/50 hover:border-blue-600/50 transition-colors font-mono cursor-pointer"
                   type="button"
-                  {...props}
+                  {...(props as any)}
                 >
                   {text}
                 </button>
@@ -65,7 +65,7 @@ export function InteractiveMarkdown({
             }
             // Regular code rendering
             return (
-              <code ref={ref as any} {...props}>
+              <code ref={ref as any} {...(props as any)}>
                 {children}
               </code>
             );

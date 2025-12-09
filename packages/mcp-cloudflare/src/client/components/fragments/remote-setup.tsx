@@ -7,8 +7,6 @@ import { Button } from "../ui/button";
 import InstallTabs, { Tab } from "./install-tabs";
 import { getCursorDeepLink } from "@/client/utils";
 
-// const mcpServerName =
-// process.env.NODE_ENV === "development" ? "sentry-dev" : "sentry";
 const mcpServerName = import.meta?.env?.DEV ? "sentry-dev" : "sentry";
 
 export default function RemoteSetup() {

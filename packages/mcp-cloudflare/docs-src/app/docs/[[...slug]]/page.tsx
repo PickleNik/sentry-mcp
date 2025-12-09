@@ -10,7 +10,9 @@ import { getMDXComponents } from "@/../docs-src/mdx-components";
 import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 // import { RemoteSetupTabs } from "../../../../src/client/components/fragments/remote-setup";
-import { RemoteSetupTabs } from "../../components/remote-setup";
+import RemoteSetup, {
+  RemoteSetupTabs,
+} from "../../components/fragments/remote-setup";
 
 export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
   const params = await props.params;
@@ -23,6 +25,7 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
     <DocsPage toc={page.data.toc} full={page.data.full}>
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
+      <RemoteSetup />
       <RemoteSetupTabs />
       <DocsBody>
         <MDX

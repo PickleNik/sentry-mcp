@@ -1,6 +1,6 @@
 import type React from "react";
 import { SentryIcon } from "./icons/sentry";
-import { Github, PanelLeftClose } from "lucide-react";
+import { BookText, Github, PanelLeftClose } from "lucide-react";
 import { Button } from "./button";
 import { Badge } from "./badge";
 
@@ -34,6 +34,16 @@ export const Header: React.FC<HeaderProps> = ({ toggleChat, isChatOpen }) => {
             isChatOpen ? "-translate-x-[var(--x)]" : ""
           }`}
         >
+          <Button
+            className="rounded-xl max-md:!py-3 max-md:!px-2.25"
+            variant="secondary"
+            asChild
+          >
+            <a href="docs" target="_blank" rel="noopener noreferrer">
+              <BookText className="h-5 w-5" />
+              <span className="max-sm:sr-only">Docs</span>
+            </a>
+          </Button>
           <Button
             className="rounded-xl max-md:!py-3 max-md:!px-2.25"
             variant="secondary"

@@ -70,8 +70,10 @@
       "@sentry/cli",
       "better-sqlite3",
       "esbuild",
+      "msw",
       "sharp",
       "simple-git-hooks",
+      "vitest-evals",
       "workerd"
     ]
   },

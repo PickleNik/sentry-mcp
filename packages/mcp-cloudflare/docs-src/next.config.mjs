@@ -5,7 +5,7 @@ const withMDX = createMDX();
 /** @type {import('next').NextConfig} */
 const config = {
   output: "export",
-  distDir: "../build-docs",
+  // distDir: "../build-docs",
   reactStrictMode: true,
 };
 

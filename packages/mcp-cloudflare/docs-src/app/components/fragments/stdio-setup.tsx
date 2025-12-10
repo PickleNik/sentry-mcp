@@ -20,7 +20,7 @@ export default function StdioSetup() {
 
   return (
     <>
-      <Prose className="mb-6">
+      <Prose id="instructions" className="mb-6">
         <p>
           The stdio client is made available on npm at{" "}
           <Link href={`https://www.npmjs.com/package/${NPM_PACKAGE_NAME}`}>

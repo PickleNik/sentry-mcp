@@ -1,11 +1,11 @@
 {
   "pages": [
     "---Getting Started---",
-    "[Cloud Setup](/docs/)",
-    "[Stdio Setup](/docs/stdio-setup)",
+    "[Cloud][Cloud Setup](/docs/)",
+    "[Cable][Stdio Setup](/docs/stdio-setup)",
     "---Links---",
     "[Discord](https://discord.com/invite/sentry)",
-    "[Github](https://github.com/getsentry/sentry-mcp)",
+    "[Github][Github](https://github.com/getsentry/sentry-mcp)",
     "[Sentry Docs](https://sentry.io/docs)"
   ]
 }

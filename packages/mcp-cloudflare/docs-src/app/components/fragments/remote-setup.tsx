@@ -17,7 +17,7 @@ export default function RemoteSetup() {
       : "/mcp";
   return (
     <>
-      <Prose className="mb-6">
+      <Prose id="instructions" className="mb-6">
         <p>
           <strong>Path Constraints:</strong> Restrict the session to a specific
           organization or project by adding them to the URL path. This ensures

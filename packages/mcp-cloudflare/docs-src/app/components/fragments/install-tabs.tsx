@@ -112,7 +112,10 @@ export default function InstallTabs({
   }, []);
 
   return (
-    <div className={cn("relative bg-background-2 rounded-2xl", className)}>
+    <div
+      id="installation"
+      className={cn("relative bg-background-2 rounded-2xl", className)}
+    >
       <div
         className="flex"
         role="tablist"
@@ -173,7 +176,7 @@ export default function InstallTabs({
                       {iconsByID[id]}
                     </span>
                   )}
-                  {selected && title}
+                  {title}
                 </div>
                 {i < lastIdx && !selected && (
                   <>

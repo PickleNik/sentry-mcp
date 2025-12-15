@@ -1,22 +1,26 @@
 // @ts-check
 import { defineConfig } from "astro/config";
+import tailwindcss from "@tailwindcss/vite";
 import starlight from "@astrojs/starlight";
-import catppuccin from "@catppuccin/starlight";
 
 import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
+  vite: {
+    plugins: [tailwindcss()],
+  },
   integrations: [
     starlight({
-      title: "My Docs",
-      plugins: [
-        catppuccin({
-          // dark: { flavor: "mocha", accent: "sky" },
-          // dark: { flavor: "macchiato", accent: "sky" },
-          // light: { flavor: "latte", accent: "sky" }
-        }),
-      ],
+      title: "Sentry MCP",
+      customCss: ["./src/styles/global.css"],
+      // plugins: [
+      //   catppuccin({
+      //     // dark: { flavor: "mocha", accent: "sky" },
+      //     // dark: { flavor: "macchiato", accent: "sky" },
+      //     // light: { flavor: "latte", accent: "sky" }
+      //   }),
+      // ],
       social: [
         {
           icon: "github",

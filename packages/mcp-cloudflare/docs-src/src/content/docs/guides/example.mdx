@@ -3,17 +3,7 @@ title: Cloud Setup
 description: Getting Started with Remote Setup
 ---
 
-import { Icon } from '@astrojs/starlight/components';
 import RemoteSetup, { RemoteSetupTabs } from '/src/components/fragments/remote-setup';
 
-<Icon name="open-book" />
-
 <RemoteSetup/>
-<RemoteSetupTabs/>
-
-Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
-Writing a good guide requires thinking about what your users are trying to do.
-
-## Further reading
-
-- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework
+<RemoteSetupTabs client:load/>

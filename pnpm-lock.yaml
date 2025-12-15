@@ -4,6 +4,15 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    '@tailwindcss/vite':
+      specifier: ^4.1.11
+      version: 4.1.11
+    tailwindcss:
+      specifier: ^4.1.11
+      version: 4.1.11
+
 importers:
 
   .:
@@ -190,9 +199,15 @@ importers:
       '@astrojs/starlight':
         specifier: ^0.37.1
         version: 0.37.1(astro@5.16.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.44.1)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.8.0))
+      '@astrojs/starlight-tailwind':
+        specifier: ^4.0.2
+        version: 4.0.2(@astrojs/starlight@0.37.1(astro@5.16.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.44.1)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.8.0)))(tailwindcss@4.1.11)
       '@catppuccin/starlight':
         specifier: ^1.0.2
         version: 1.0.2(@astrojs/starlight@0.37.1(astro@5.16.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.44.1)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.8.0)))(astro@5.16.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.44.1)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.8.0))
+      '@tailwindcss/vite':
+        specifier: 'catalog:'
+        version: 4.1.11(vite@6.4.1(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(tsx@4.20.3)(yaml@2.8.0))
       '@types/react':
         specifier: ^19.2.7
         version: 19.2.7
@@ -214,6 +229,9 @@ importers:
       sharp:
         specifier: ^0.34.2
         version: 0.34.5
+      tailwindcss:
+        specifier: 'catalog:'
+        version: 4.1.11
 
   packages/mcp-core:
     dependencies:
@@ -516,6 +534,12 @@ packages:
 
   '@astrojs/sitemap@3.6.0':
     resolution: {integrity: sha512-4aHkvcOZBWJigRmMIAJwRQXBS+ayoP5z40OklTXYXhUDhwusz+DyDl+nSshY6y9DvkVEavwNcFO8FD81iGhXjg==}
+
+  '@astrojs/starlight-tailwind@4.0.2':
+    resolution: {integrity: sha512-SYN/6zq6hJO5tWqbQ2tWT9/jd8ubUkzkBCcF94vByC/ZJ20Mi5GPjFvAh89Yky/aIM+jXxT6W5q4p6l58GKHiQ==}
+    peerDependencies:
+      '@astrojs/starlight': '>=0.34.0'
+      tailwindcss: ^4.0.0
 
   '@astrojs/starlight@0.37.1':
     resolution: {integrity: sha512-STNsR5PaDoiW4IgcX17Fp42FfyqwuweWPts/EWEMcFPAeg9Nvpu3UvVCorasYrgfJgaJTeydsOV++0ACA1KYDA==}
@@ -5989,6 +6013,11 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.25.76
 
+  '@astrojs/starlight-tailwind@4.0.2(@astrojs/starlight@0.37.1(astro@5.16.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.44.1)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.8.0)))(tailwindcss@4.1.11)':
+    dependencies:
+      '@astrojs/starlight': 0.37.1(astro@5.16.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.44.1)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.8.0))
+      tailwindcss: 4.1.11
+
   '@astrojs/starlight@0.37.1(astro@5.16.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.44.1)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.8.0))':
     dependencies:
       '@astrojs/markdown-remark': 6.3.10
@@ -7661,7 +7690,7 @@ snapshots:
       enhanced-resolve: 5.18.2
       jiti: 2.4.2
       lightningcss: 1.30.1
-      magic-string: 0.30.17
+      magic-string: 0.30.21
       source-map-js: 1.2.1
       tailwindcss: 4.1.11
 
@@ -7703,7 +7732,7 @@ snapshots:
 
   '@tailwindcss/oxide@4.1.11':
     dependencies:
-      detect-libc: 2.0.4
+      detect-libc: 2.1.2
       tar: 7.4.3
     optionalDependencies:
       '@tailwindcss/oxide-android-arm64': 4.1.11
@@ -7733,6 +7762,13 @@ snapshots:
       '@tailwindcss/oxide': 4.1.11
       tailwindcss: 4.1.11
       vite: 6.3.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(tsx@4.20.3)(yaml@2.8.0)
+
+  '@tailwindcss/vite@4.1.11(vite@6.4.1(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(tsx@4.20.3)(yaml@2.8.0))':
+    dependencies:
+      '@tailwindcss/node': 4.1.11
+      '@tailwindcss/oxide': 4.1.11
+      tailwindcss: 4.1.11
+      vite: 6.4.1(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(tsx@4.20.3)(yaml@2.8.0)
 
   '@tybys/wasm-util@0.9.0':
     dependencies:
